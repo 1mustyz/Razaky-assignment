@@ -88,12 +88,10 @@ initFetch();
 
 
 uploadPhoto.addEventListener('click', ()=>{
-    console.log(choosePhoto.files)
 
     const fileField = choosePhoto;
     formData.append('username', 'abc123');
     formData.append('profile_pic', choosePhoto.files[0]);
-
 
     fetch(`http://localhost:3090/users/upload_photo/?id=${USER}`, {
         method: 'PUT', // or 'PUT'
@@ -101,8 +99,8 @@ uploadPhoto.addEventListener('click', ()=>{
         })
         .then(response => response.json())
         .then(data => {
-        console.log('Success:', data);
-        initFetch();
+            console.log('Success:', data);
+            window.location.reload()
 
         })
         .catch((error) => {
