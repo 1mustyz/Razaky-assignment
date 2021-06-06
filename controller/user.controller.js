@@ -41,7 +41,7 @@ const login = async function(req, res){
     const checkPassword = bcrypt.compareSync(data.password, user.password); 
     
     !checkPassword
-        ? res.json({"msg": "Password is incorrect"})
+        ? res.json({"msg": "Password is incorrect please inter a correct password"})
         : payLoad.id = user.id
         1
             ? Login.create({id: user.id, email: user.email})
