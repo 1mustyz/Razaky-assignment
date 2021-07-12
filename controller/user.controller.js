@@ -1,4 +1,4 @@
-const {User, Login} = require('../models');
+const {User, Login, Post, Comment} = require('../models');
 const filesMiddleware = require('../middlewares/files.middleware');
 const jwt =require('jsonwebtoken');
 const multer = require('multer');
@@ -118,6 +118,35 @@ const findOne = async (req,res,next) => {
         ? res.json(result)
         : res.json({"msg":"no register user yet"});
 }
+
+const makePost = async (req,res,next) => {
+
+    await Post.create(req.body)
+    res.json({msg:"post created"});
+}
+
+const getAllPost = async (req,res,next) => {
+    const result = await Post.findAll({
+        include:[{model: User}]
+    })
+    res.json({success: true, result});
+}
+
+const getSinglePost = async (req,res,next) => {
+    const result = await Post.findOne({
+        where: {id: req.query.id},
+        include:[{model: User},{model: Comment}]
+    })
+    res.json({success: true, result});
+}
+
+const makeComment = async (req,res,next) => {
+
+    await Comment.create(req.body)
+    const result = await Comment.findAll({where: {postId: req.body.postId}})
+    res.json({success: true, result});
+}
+
 module.exports = {
     register,
     uploadPhoto,
@@ -125,5 +154,9 @@ module.exports = {
     findAll,
     login,
     findOne,
-    logout
+    logout,
+    makeComment,
+    makePost,
+    getAllPost,
+    getSinglePost
 }

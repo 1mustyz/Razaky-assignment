@@ -18,6 +18,10 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
+router.get('/post-detail', function(req, res, next) {
+  res.render('postDetail', { title: 'Express' });
+});
+
 router.get(
   '/profile',
   function(req, res, next) {

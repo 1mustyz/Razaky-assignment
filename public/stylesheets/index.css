@@ -14,7 +14,7 @@
         color: white;
     }
     
-    div {
+    .btn {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -23,9 +23,10 @@
         height: 32vh;
         margin: auto;
         margin-top: 2rem;
+        margin-bottom: 2rem;
     }
     
-    a {
+    .atag {
         width: 50%;
         text-align: center;
         background-color: rgb(72, 72, 155);
@@ -33,6 +34,27 @@
         border-radius: 0.2rem;
         text-decoration: none;
         padding: 1rem;
+        
+    }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+    }
+    .content {
+        font-size: 1.5rem;
+    }
+    .username {
+        color: green;
+        align-self: flex-end;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
     }
   }
 

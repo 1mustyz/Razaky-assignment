@@ -14,6 +14,8 @@ const email = document.querySelector('.email');
 const address = document.querySelector('.address');
 const submitProfile = document.querySelector('.submit_profile');
 const logoutButton = document.querySelector('.logout');
+const post = document.querySelector('.post');
+const postBtn = document.querySelector('.postBtn');
 
 const formData = new FormData();
 
@@ -142,6 +144,34 @@ submitProfile.addEventListener('click', () => {
         });
 });
 
+postBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log({
+        userId: USER,
+        content: post.value
+    })
+
+
+    fetch(`http://localhost:3090/users/make-post`, {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: USER,
+            content: post.value
+        }),
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        updateMessage(data.msg);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+})
+
 
 logoutButton.addEventListener('click', () => {
     
@@ -155,9 +185,7 @@ logoutButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        // updateMessage(data.msg);
-        window.localStorage.removeItem('USER');
-        window.location = 'http://localhost:3090/';
+        
     })
     .catch((error) => {
         console.error('Error:', error);

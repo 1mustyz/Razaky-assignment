@@ -7,17 +7,17 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "3MEuRPVnyJ",
+    "password": "EvKHmC32w2",
+    "database": " 3MEuRPVnyJ",
+    "host": "remotemysql.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "3MEuRPVnyJ",
+    "password": "EvKHmC32w2",
+    "database": " 3MEuRPVnyJ",
+    "host": "remotemysql.com",
     "dialect": "mysql"
   }
 }
